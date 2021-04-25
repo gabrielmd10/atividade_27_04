@@ -1,0 +1,185 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "serviço de busca de cep",
+    "description": "API de controle de cep",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/v1",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/cep/{filter}": {
+      "get": {
+        "tags": [
+          "CEP"
+        ],
+        "summary": "recurso de busca de cep",
+        "description": "busca o cep",
+        "operationId": "getcep",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "path",
+            "description": "Digite seu cep",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "$ref": "#/definitions/filter"
+            }
+          },
+          "400": {
+            "description": "Identificador Inválido"
+          },
+          "500": {
+            "description": "Erro no serviço"
+          }
+        }
+      }
+    },
+    "/bairro/{filter}": {
+      "get": {
+        "tags": [
+          "CEP"
+        ],
+        "summary": "recurso de busca de bairro",
+        "description": "busca o bairro",
+        "operationId": "getbairro",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "path",
+            "description": "Digite seu bairro",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "$ref": "#/definitions/filter"
+            }
+          },
+          "400": {
+            "description": "Identificador Inválido"
+          },
+          "500": {
+            "description": "Erro no serviço"
+          }
+        }
+      }
+    },
+    "/cidade/{filter}": {
+      "get": {
+        "tags": [
+          "CEP"
+        ],
+        "summary": "recurso de busca de cidade",
+        "description": "busca a cidade",
+        "operationId": "getcidade",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Digite sua cidade",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "$ref": "#/definitions/filter"
+            }
+          },
+          "400": {
+            "description": "Identificador Inválido"
+          },
+          "500": {
+            "description": "Erro no serviço"
+          }
+        }
+      }
+    },
+    "/localidade/{filter}": {
+      "get": {
+        "tags": [
+          "CEP"
+        ],
+        "summary": "recurso de busca de localidade",
+        "description": "busca a localidade",
+        "operationId": "getlocalidade",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Digite sua localidade",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "$ref": "#/definitions/filter"
+            }
+          },
+          "400": {
+            "description": "Identificador Inválido"
+          },
+          "500": {
+            "description": "Erro no serviço"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "filter": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "inte64"
+        },
+        "cep": {
+          "type": "integer",
+          "format": "inte32"
+        },
+        "cidadeuf": {
+          "type": "string"
+        },
+        "bairro": {
+          "type": "string"
+        },
+        "localidade": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
